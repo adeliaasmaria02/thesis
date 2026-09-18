@@ -1,2 +1,6 @@
 library(readxl)
-library(stat)
+library(ggplot2)
+library(lmtest)
+library(rugarch)
+library(pastecs)
+library(tseries)
