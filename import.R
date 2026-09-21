@@ -4,8 +4,16 @@ library(lmtest)
 library(rugarch)
 library(pastecs)
 library(tseries)
+library(stats)
+library(car)
+library(dplyr)
+library(tidyr)
+library(scales) 
+library(lmtest)
+library(vars)
+library(reshape2)
 
-# PRE-PROCESSING FCI
+# IMPORT FCI
 # X1.1 : Jumlah Uang Beredar
 jubb <- list( 
   j2010 = read_excel("C:/Users/ADELIA NUR ASMARIA/Documents/S2/Thesis/data/FCI_JUB/Uang Beredar, 2010.xlsx"),
@@ -215,7 +223,7 @@ FCI <- data.frame(
 )
 colnames(FCI) <- c ("date","jub", "cci", "birt", "jibor")
 
-# PRE-PROCESSING FSI
+# IMPORT & CONSTRUCT FSI
 # X2.1 : tingkat stress Sektor Perbankan 
 idxf <- read.csv("C:/Users/ADELIA NUR ASMARIA/Documents/S2/Thesis/data/FSI_JKFINANCE/Data Historis IDX Finance (2).csv")
 idxf$Terakhir <- as.numeric(gsub(",", ".", gsub("\\.", "", idxf$Terakhir)))
